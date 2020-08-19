@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/microphone_btn"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="10dp"
+        android:onClick="requestMicrophonePermission"
+        android:text="@string/mic" />
+
+    <Button
+        android:id="@+id/location_permission_btn"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_above="@id/microphone_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="10dp"
+        android:onClick="requestLocationPermission"
+        android:text="@string/location" />
+
+    <Button
+        android:id="@+id/camera_permission_btn"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/microphone_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="10dp"
+        android:onClick="requestCameraPermission"
+        android:text="@string/camera" />
+
+</RelativeLayout>
