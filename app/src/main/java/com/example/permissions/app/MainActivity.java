@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean checkPermissionStatus(String permission) {
-        return Build.VERSION.SDK_INT < Build.VERSION_CODES.M || ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED;
+        return Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
+               ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED;
     }
 
     private void requestPermission(final String permission) {
@@ -65,14 +66,7 @@ public class MainActivity extends AppCompatActivity {
     private void scheduleAlarm() {
         AlarmManager am = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
         if (am != null) {
-            Log.i(TAG, "Scheduling alarm");
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                am.setAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                                        SystemClock.elapsedRealtime() + TimeUnit.MINUTES.toMillis(5),
-                                        getPendingIntent());
-            } else {
-                am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + TimeUnit.MINUTES.toMillis(5), getPendingIntent());
-            }
+            am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + TimeUnit.MINUTES.toMillis(5), getPendingIntent());
             Log.i(TAG, "Alarm Scheduled");
         }
     }
